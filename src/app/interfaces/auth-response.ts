@@ -1,4 +1,4 @@
-export interface UserInterface {
+export interface AuthResponseInterface {
   first_name: string
   last_name: string
   role: string

@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {LoginService} from "../../services/login.service";
 import {Subscription} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -17,8 +17,9 @@ import {HttpClient} from "@angular/common/http";
 export class LoginComponent implements OnInit, OnDestroy {
   loginForm!: FormGroup
   sub$!: Subscription
+  showError: boolean = false
 
-  constructor(private fb: FormBuilder, private loginService: LoginService) {
+  constructor(private fb: FormBuilder, private loginService: LoginService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -33,9 +34,15 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   login(): void {
+    this.showError = false
     this.sub$ = this.loginService.login(this.loginForm.value).subscribe({
-      next: (res) => alert(res),
-      error: (err) => alert(err)
+      next: (res) => {
+        this.router.navigateByUrl('/dashboard')
+      },
+      error: (err) => {
+        this.loginForm.reset()
+        this.showError = true
+      }
     })
   }
 

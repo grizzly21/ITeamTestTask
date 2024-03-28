@@ -54,6 +54,11 @@ $borderColor: rgba(192, 192, 192, 0.5);
         &:hover{
           background-color: darken(#327CE4, 10%);
         }
+
+        &:disabled{
+          background-color: lighten(#327CE4, 20%);
+          cursor: not-allowed;
+        }
       }
     }
 

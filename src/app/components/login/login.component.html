@@ -8,10 +8,10 @@
       <input class="control__input" type="password" placeholder="Password" formControlName="password">
     </div>
     <div class="control">
-      <button type="submit" class="btn-submit">Log in</button>
+      <button type="submit" class="btn-submit" [disabled]="loginForm.invalid || loginForm.pending">Log in</button>
     </div>
-    <div class="errors" [hidden]="true">
-      <p class="errors__text">Lorem ipsum dolor sit amet.</p>
+    <div class="errors" [hidden]="!showError">
+      <p class="errors__text">User not found. Enter correct data</p>
     </div>
   </form>
 </div>
