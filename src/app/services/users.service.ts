@@ -13,10 +13,6 @@ export class UsersService {
   constructor(private http: HttpClient, private perService: PersistanceService) { }
 
   getUsers(): Observable<UsersInterface[]>{
-    return this.http.get<UsersInterface[]>(`${apiUrl}api/users`, {
-      headers: {
-        'X-Token': this.perService.get('token')
-      }
-    })
+    return this.http.get<UsersInterface[]>(`${apiUrl}api/users`)
   }
 }
