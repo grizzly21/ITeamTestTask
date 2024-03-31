@@ -1,0 +1,78 @@
+.reports{
+  padding: 20px 0;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+
+  &__card{
+    width: 100%;
+    border: 1px solid rgba(171, 171, 171, 0.51);
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px rgba(171, 171, 171, 0.51);
+    transition: all .2s;
+    &:hover {
+      transform: scale(105%);
+    }
+
+    .image{
+      height: 200px;
+
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .data {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      &__additional {
+        display: flex;
+        justify-content: space-between;
+
+        .status{
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          background-color: #000;
+        }
+
+        .active{
+          background-color: lawngreen;
+        }
+
+        .inactive{
+          background-color: crimson;
+        }
+      }
+
+      .open__graph{
+        display: flex;
+        justify-content: end;
+
+        .open__graph-btn{
+          padding: 8px 25px;
+          background-color: #327CE4;
+          color: #fff;
+          text-transform: uppercase;
+          font-size: 14px;
+          border: 1px solid rgba(171, 171, 171, 0.51);
+          border-radius: 5px;
+          margin-top: 10px;
+          transition: all .2s;
+
+          &:hover{
+            background-color: darken(#327CE4, 10%);
+            cursor: pointer;
+            box-shadow: 0 0 2px darken(#327CE4, 10%);
+          }
+        }
+      }
+    }
+  }
+}

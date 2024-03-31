@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div class="login">
+  <form class="login__form" [formGroup]="loginForm" (ngSubmit)="login()">
+    <h3 class="login__form-title">login</h3>
+    <div class="control">
+      <input class="control__input" type="email" placeholder="Email" formControlName="email">
+    </div>
+    <div class="control">
+      <input class="control__input" type="password" placeholder="Password" formControlName="password">
+    </div>
+    <div class="control">
+      <button type="submit" class="btn-submit" [disabled]="loginForm.invalid || loginForm.pending">Log in</button>
+    </div>
+    <div class="errors" [hidden]="!showError">
+      <p class="errors__text">User not found. Enter correct data</p>
+    </div>
+  </form>
+</div>
