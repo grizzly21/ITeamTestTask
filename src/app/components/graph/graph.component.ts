@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, inject, OnDestroy, OnInit} from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {CanvasJSAngularChartsModule} from "@canvasjs/angular-charts";
 import {GraphReportMappedInterface} from "../../interfaces/graph-report";
 import {Subscription} from "rxjs";
@@ -17,15 +17,16 @@ import {MatButton} from "@angular/material/button";
     MatDialogClose
   ],
   templateUrl: './graph.component.html',
-  styleUrl: './graph.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './graph.component.scss'
 })
 export class GraphComponent implements OnInit, OnDestroy {
   sub$!: Subscription
-  userAssessment = inject(UserAssessmentService)
   chartOptions = {}
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: {id: number, title: string }, private cdr: ChangeDetectorRef) {
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: {id: number, title: string },
+    private userAssessment: UserAssessmentService
+    ) {
   }
 
   ngOnInit(): void {
@@ -43,7 +44,6 @@ export class GraphComponent implements OnInit, OnDestroy {
             dataPoints: response
           }]
         }
-        this.cdr.detectChanges()
       },
       error: err => console.log(err)
     })

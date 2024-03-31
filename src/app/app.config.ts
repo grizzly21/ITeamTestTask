@@ -13,7 +13,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(withInterceptors([authInterceptorService])),
     PersistanceService,
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}, provideAnimationsAsync(), provideAnimationsAsync()
+    provideAnimationsAsync()
   ]
 };
 export const apiUrl: string = 'https://user-assessment-api.vercel.app/';
