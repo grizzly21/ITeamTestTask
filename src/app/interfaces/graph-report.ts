@@ -1,5 +1,5 @@
 export interface GraphReportInterface {
-  data: GraphReportResponseInterface,
+  data: GraphReportResponseInterface
   type: string
 }
 
@@ -10,7 +10,7 @@ export interface GraphReportResponseInterface {
   openess: number
 }
 
-export interface GraphReportMappedInterface{
-  label: string,
+export interface GraphReportMappedInterface {
+  label: string
   y: number
 }
