@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
   imports: [
     ReactiveFormsModule
   ],
-  providers:[LoginService],
+  providers: [LoginService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.loginService.logout()
     this.initializeForm()
   }
 
@@ -36,10 +37,10 @@ export class LoginComponent implements OnInit, OnDestroy {
   login(): void {
     this.showError = false
     this.sub$ = this.loginService.login(this.loginForm.value).subscribe({
-      next: (res) => {
+      next: () => {
         this.router.navigateByUrl('/dashboard')
       },
-      error: (err) => {
+      error: () => {
         this.loginForm.reset()
         this.showError = true
       }

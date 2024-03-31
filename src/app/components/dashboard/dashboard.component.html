@@ -7,11 +7,11 @@
       <div class="data">
         <div class="name">{{ item.name }}</div>
         <div class="data__additional">
-          <div class="resolved"><i class="fa-solid fa-user-check"></i> {{item.users_resolved}}</div>
+          <div class="resolved"><i class="fa-solid fa-user-check"></i> {{ item.users_resolved }}</div>
           <div class="status" [ngClass]="item.active ? 'active' : 'inactive'"></div>
         </div>
         <div class="open__graph">
-          <button class="open__graph-btn">graph</button>
+          <button class="open__graph-btn" (click)="openDialogWithChartById(item.id, item.name)">graph</button>
         </div>
       </div>
     </div>

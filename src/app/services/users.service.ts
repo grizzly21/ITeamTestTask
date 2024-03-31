@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {UsersInterface} from "../interfaces/users.interface";
 import {apiUrl} from "../app.config";
-import {PersistanceService} from "./persistance.service";
+import {PersistanceService} from "../shared/services/persistance.service";
 
 @Injectable({
   providedIn: 'root'

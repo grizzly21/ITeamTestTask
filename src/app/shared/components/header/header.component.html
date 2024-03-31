@@ -1,0 +1,9 @@
+<header class="header" *ngIf="perService.get('token')">
+  <div class="wrapper">
+    <div class="header__content">
+      <h2>ITeam Test Task</h2>
+      <a class="admin_btn" [routerLink]="['/admin']" *ngIf="perService.get('role') === 'Admin' && router.url === '/dashboard'">Admin Section</a>
+      <a class="admin_btn" [routerLink]="['/dashboard']" *ngIf="perService.get('role') === 'Admin' && router.url === '/admin'">Dashboard Section</a>
+    </div>
+  </div>
+</header>

@@ -1,6 +1,6 @@
 import {HttpInterceptorFn} from "@angular/common/http";
 import {inject} from "@angular/core";
-import {PersistanceService} from "../services/persistance.service";
+import {PersistanceService} from "./persistance.service";
 
 export const authInterceptorService: HttpInterceptorFn = (req, next) => {
   const persistanceService: PersistanceService = inject(PersistanceService)
